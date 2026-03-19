@@ -1,0 +1,8 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/v1/coupons/issue"
+  to = "/.netlify/functions/coupons-issue"
+  status = 200
+  force = true
