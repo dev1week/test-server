@@ -6,6 +6,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type,Authorization",
 };
 
+const RESPONSE_DELAY_MS = 2000;
+
 const successResponse = {
   status: "SUCCESS",
   code: "COUPON_ISSUED",
@@ -94,11 +96,18 @@ const failureResponses = [
 function pickOutcome() {
   // 50% success, remaining 50% evenly split across six failure cases.
   if (Math.random() < 0.5) {
-    return { statusCode: 200, body: { ...successResponse, timestamp: new Date().toISOString() } };
+    return {
+      statusCode: 200,
+      body: { ...successResponse, timestamp: new Date().toISOString() },
+    };
   }
 
   const index = Math.floor(Math.random() * failureResponses.length);
   return failureResponses[index];
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 exports.handler = async (event) => {
@@ -127,6 +136,7 @@ exports.handler = async (event) => {
     };
   }
 
+  await sleep(RESPONSE_DELAY_MS);
   const outcome = pickOutcome();
 
   return {
