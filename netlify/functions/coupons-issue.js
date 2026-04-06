@@ -8,10 +8,10 @@ const corsHeaders = {
 
 const RESPONSE_DELAY_MS = 2000;
 
-const successResponse = {
+const successResponse = {  
   status: "SUCCESS",
   code: "COUPON_ISSUED",
-  message: "계정 쿠폰이 정상적으로 발급되었습니다.",
+  message: "쿠폰이 발급되었습니다 <br> 삼성닷컴 쿠폰존에서 확인해보세요.",
   timestamp: new Date().toISOString()
 };
 
@@ -21,7 +21,7 @@ const failureResponses = [
     body: {
       status: "FAIL",
       code: "COUPON_ALREADY_ISSUED",
-      message: "계정에게 이미 발급된 쿠폰이 있습니다.",
+      message: "이미 쿠폰을 받았어요. <br> 삼성닷컴 쿠폰존을 확인해주세요.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
@@ -31,7 +31,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "NO_SAMSUNG_ACCOUNT",
-      message: "삼성 계정이 등록되지 않은 사용자입니다.",
+      message: "삼성닷컴 회원으로 가입되어야 <br> 쿠폰을 받을 수 있습니다.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
@@ -41,7 +41,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "COUPON_PERIOD_EXPIRED",
-      message: "쿠폰 발급 기간이 만료되었습니다.",
+      message: "아쉽지만, 쿠폰 발급기간이 끝났어요.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
@@ -51,7 +51,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "UNSURPPORTED_COUNTRY",
-      message: "해당 국가에서는 쿠폰 발급을 지원하지 않습니다.",
+      message: "한국에서만 받을 수 있는 쿠폰입니다.",
       data: {
         countryCode: "KR",
         supportedCountries: ["KR"],
