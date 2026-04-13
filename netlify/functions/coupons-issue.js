@@ -11,7 +11,7 @@ const RESPONSE_DELAY_MS = 2000;
 const successResponse = {  
   status: "SUCCESS",
   code: "COUPON_ISSUED",
-  message: "쿠폰이 발급되었습니다.<br>삼성닷컴 쿠폰존에서 확인해보세요.",
+  message: "님, 쿠폰이 발급되었습니다.<br>삼성닷컴 쿠폰존에서 확인해보세요.",
   timestamp: new Date().toISOString()
 };
 
