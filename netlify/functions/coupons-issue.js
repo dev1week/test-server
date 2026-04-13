@@ -11,7 +11,7 @@ const RESPONSE_DELAY_MS = 2000;
 const successResponse = {  
   status: "SUCCESS",
   code: "COUPON_ISSUED",
-  message: "쿠폰이 발급되었습니다 <br> 삼성닷컴 쿠폰존에서 확인해보세요.",
+  message: "쿠폰이 발급되었습니다.<br>삼성닷컴 쿠폰존에서 확인해보세요.",
   timestamp: new Date().toISOString()
 };
 
@@ -21,7 +21,7 @@ const failureResponses = [
     body: {
       status: "FAIL",
       code: "COUPON_ALREADY_ISSUED",
-      message: "이미 쿠폰을 받았어요. <br> 삼성닷컴 쿠폰존을 확인해주세요.",
+      message: ", 이미 쿠폰을 받았어요.<br>삼성닷컴 쿠폰존을 확인해주세요.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
@@ -31,7 +31,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "NO_SAMSUNG_ACCOUNT",
-      message: "삼성닷컴 회원으로 가입되어야 <br> 쿠폰을 받을 수 있습니다.",
+      message: "의 삼성계정을 확인할 수 없습니다. <br>삼성닷컴 로그인 후 쿠폰을 받아주세요.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
@@ -41,7 +41,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "COUPON_PERIOD_EXPIRED",
-      message: "아쉽지만, 쿠폰 발급기간이 끝났어요.",
+      message: "<br>아쉽지만, 쿠폰 발급기간이 끝났어요.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
@@ -65,7 +65,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "INTERNAL_SERVER_ERROR",
-      message: "쿠폰 발급 중 오류가 발생했습니다.",
+      message: "일시적인 오류가 발생했습니다.<br> 잠시 후 다시 시도해주세요",
 timestamp: new Date().toISOString(),
       retryable: true,
       retryAfter: 5000,
