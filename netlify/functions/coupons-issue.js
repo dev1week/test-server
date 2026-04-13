@@ -41,7 +41,7 @@ timestamp: new Date().toISOString(),
     body: {
       status: "FAIL",
       code: "COUPON_PERIOD_EXPIRED",
-      message: "님,<br>아쉽지만 쿠폰 발급기간이 끝났어요.",
+      message: ",<br>아쉽지만 쿠폰 발급기간이 끝났어요.",
 timestamp: new Date().toISOString(),
       retryable: false,
     },
