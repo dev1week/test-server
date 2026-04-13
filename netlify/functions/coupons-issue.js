@@ -71,17 +71,7 @@ timestamp: new Date().toISOString(),
       retryAfter: 5000,
     },
   },
-  {
-    statusCode: 504,
-    body: {
-      status: "FAIL",
-      code: "NETWORK_TIMEOUT",
-      message: "네트워크 연결 오류입니다. 잠시 후 다시 시도해주세요",
-timestamp: new Date().toISOString(),
-      retryable: true,
-      retryAfter: 5000,
-    },
-  },
+  
 ];
 
 function pickOutcome() {
